@@ -9,6 +9,7 @@
   "author": "cpalacios",
   "license": "ISC",
   "dependencies": {
+    "eslint": "^7.7.0",
     "mongoose": "^5.10.2"
   }
 }
