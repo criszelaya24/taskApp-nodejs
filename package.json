@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./ -f table",
-    "lint:fix": "npm lint --fix",
+    "lint:fix": "yarn lint --fix",
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
