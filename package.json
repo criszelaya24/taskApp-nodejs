@@ -4,17 +4,21 @@
   "description": "taskApp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./ -f table",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "npm lint --fix",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "author": "cpalacios",
   "license": "ISC",
   "dependencies": {
     "eslint": "^7.7.0",
-    "mongoose": "^5.10.2"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.2",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
-    "eslint-config": "git+ssh://github.com/criszelaya24/eslint-config"
+    "eslint-config-lint": "git+ssh://github.com/criszelaya24/eslint-config",
+    "nodemon": "^2.0.4"
   }
 }
