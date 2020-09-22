@@ -1,5 +1,5 @@
 module.exports = (res, error) => {
-    res.send(400, {
-        error: error,
+    res.status(400).send({
+        error: error.message || error,
     });
 };

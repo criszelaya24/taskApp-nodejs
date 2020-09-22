@@ -10,7 +10,9 @@ router.route('/users')
 
             try {
                 await user.save();
-                res.status(201).send(user);
+                const token = await user.generateAuthToken();
+
+                res.status(201).send({ user, token });
             } catch (e) {
                 sendError(res, e);
             }
@@ -54,7 +56,15 @@ router.route('/users/:id')
             }
 
             try {
-                const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
+                const user = await User.findById(req.params.id);
+
+                if (!user) {
+                    return res.status(404).send();
+                }
+
+                updates.forEach(update => user[update] = req.body[update]);
+
+                await user.save();
 
                 if (!user) {
                     return res.status(404).send();
@@ -75,6 +85,20 @@ router.route('/users/:id')
                 }
 
                 res.send(200, { data: true });
+            } catch (e) {
+                sendError(res, e);
+            }
+        });
+
+router.route('/users/login')
+    .post(
+        async (req, res) => {
+            try {
+                const user = await User.findByCredentials(req.body.email, req.body.password);
+
+                const token = await user.generateAuthToken();
+
+                res.send({ user, token });
             } catch (e) {
                 sendError(res, e);
             }
