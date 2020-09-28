@@ -3,6 +3,19 @@ const User = require('../models/User');
 const router = new express.Router();
 const sendError = require('../utils/sendError');
 const auth = require('../middleware/auth');
+const multer = require('multer');
+
+const upload = multer({
+    limits: {
+        fileSize: 1000000,
+    },
+    fileFilter: (req, file, cb) => {
+        if (!file.originalname.match(/\.(jpg|jpeg|png)$/))
+            return cb(new Error('Please upload a image'));
+
+        cb(undefined, true);
+    },
+}).single('avatar');
 
 router.route('/users')
     .post(
@@ -90,6 +103,27 @@ router.route('/users/:id')
                 sendError(res, e);
             }
         });
+
+// Use sharp to re-size image
+router.route('/users/:id/avatar')
+    .post(auth, (req, res) => {
+        upload(req, res, async (err) => {
+            if (err) res.status(400).send({ error: err.message });
+
+            req.user.avatar = req.file.buffer;
+            await req.user.save();
+            res.send();
+        });
+    })
+    .delete(auth, async(req, res) => {
+        req.user.avatar = undefined;
+        await req.user.save();
+        res.send();
+    })
+    .get(auth, (req, res) => {
+        res.set('Content-Type', 'image/jpg');
+        res.send(req.user.avatar);
+    });
 
 router.route('/users/login')
     .post(
