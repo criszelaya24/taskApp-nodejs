@@ -7,11 +7,38 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "API",
+            "name": "API TEST",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/src/app.js"
+            "program": "${workspaceFolder}/src/app.js",
+            "env": {
+                "ENV": "test"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "API DEVELOPMENT",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/src/app.js",
+            "env": {
+                "ENV": "development"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "API LOCAL",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/src/app.js",
+            "env": {
+                "ENV": "local"
+            }
         }
     ]
 }

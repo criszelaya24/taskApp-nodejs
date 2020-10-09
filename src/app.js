@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const environment = require('./settings');
+
+global.API_SETTINGS = environment[process.env.ENV] ? environment[process.env.ENV] : environment['local'];
+
+console.log(process.env.ENV);
+
 const sendError = require('./utils/sendError');
 const usersRouter = require('./routes/user'),
     taskRouter = require('./routes/task');
