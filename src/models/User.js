@@ -4,8 +4,6 @@ const mongoose = require('../db/mongoose'),
     jwt = require('jsonwebtoken'),
     Task = require('./Task');
 
-const test = '';
-
 const userSchema = new mongoose.Schema({
     name: { type: String },
     age: {
