@@ -44,6 +44,7 @@ router.route('/users')
 
 router.route('/users/:id')
     .get(
+        auth,
         async (req, res) => {
             const _id = req.params.id;
 
@@ -90,6 +91,7 @@ router.route('/users/:id')
             }
         })
     .delete(
+        auth,
         async (req, res) => {
             try {
                 const user = await User.findByIdAndDelete(req.params.id);
