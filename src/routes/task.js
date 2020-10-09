@@ -13,7 +13,7 @@ router.post('/tasks', auth, async (req, res) => {
     try {
         await task.save();
 
-        res.send((201, task));
+        res.status(201).send(task);
     } catch (error) {
         sendError(res, error);
     }
