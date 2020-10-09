@@ -86,9 +86,11 @@ describe('Testing endpoint User', () => {
 
     test('should delete user info', async() => {
         const res = await request(app).delete(`/users/${userToLogin._id}`).set('Authorization', `Bearer ${userToLogin.token}`);
+        const user = await User.findById(userToLogin._id);
 
         expect(res.body.data).toEqual(true);
         expect(res.status).toEqual(200);
+        expect(user).toBeNull();
     });
 
     test('should not delete user', async() => {
