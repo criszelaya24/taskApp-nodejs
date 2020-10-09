@@ -8,7 +8,7 @@
     "lint:fix": "yarn lint --fix",
     "start": "node src/run.js",
     "dev": "ENV=development nodemon src/run.js",
-    "test": "ENV=test jest --watch --runInBand --detectOpenHandles"
+    "test": "ENV=test jest --watchAll --runInBand --detectOpenHandles"
   },
   "jest": {
     "testEnvironment": "node"
