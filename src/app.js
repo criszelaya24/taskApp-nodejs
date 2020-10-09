@@ -1,11 +1,8 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
 const environment = require('./settings');
 
 global.API_SETTINGS = environment[process.env.ENV] ? environment[process.env.ENV] : environment['local'];
-
-console.log(process.env.ENV);
 
 const sendError = require('./utils/sendError');
 const usersRouter = require('./routes/user'),
@@ -23,4 +20,4 @@ app.all('*', (req, res) => {
     sendError(res, 'Endpoint not found');
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+module.exports = app;

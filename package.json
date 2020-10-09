@@ -6,12 +6,12 @@
   "scripts": {
     "lint": "eslint ./ -f table",
     "lint:fix": "yarn lint --fix",
-    "start": "node src/app.js",
-    "dev": "ENV=development nodemon src/app.js",
-    "test": "jest --watch"
+    "start": "node src/run.js",
+    "dev": "ENV=development nodemon src/run.js",
+    "test": "ENV=test jest --watch --runInBand --detectOpenHandles"
   },
   "jest": {
-    "jestEnvironment": "node"
+    "testEnvironment": "node"
   },
   "author": "cpalacios",
   "license": "ISC",
@@ -27,6 +27,7 @@
   "devDependencies": {
     "eslint-config-lint": "git+ssh://github.com/criszelaya24/eslint-config",
     "jest": "^26.5.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
   }
 }
