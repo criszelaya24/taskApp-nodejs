@@ -85,7 +85,7 @@ router.route('/users/:id')
                     return res.status(404).send();
                 }
 
-                res.send(user);
+                res.status(200).send(user);
             } catch (e) {
                 sendError(res, e);
             }
@@ -100,7 +100,7 @@ router.route('/users/:id')
                     return res.status(404).send();
                 }
 
-                res.send(200, { data: true });
+                res.status(200).send({ data: true });
             } catch (e) {
                 sendError(res, e);
             }
@@ -114,7 +114,7 @@ router.route('/users/:id/avatar')
 
             req.user.avatar = req.file.buffer;
             await req.user.save();
-            res.send();
+            res.status(200).send({ data: true });
         });
     })
     .delete(auth, async(req, res) => {
