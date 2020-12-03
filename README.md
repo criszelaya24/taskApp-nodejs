@@ -59,6 +59,7 @@ Example: **npm start dev**
 > ## Technologies
 ### Development
 - [NodeJs][NodeJs]
+- [Mongo][mongo]
 - [Express.js][express]
 - [jsonwebtoken][jsonwebtoken]
 - [multer][multer]
@@ -71,6 +72,7 @@ Example: **npm start dev**
 - [supertest][supertest]
 
 [NodeJs]: https://nodejs.org/es/
+[mongo]: https://www.mongodb.com/es
 [express]: https://expressjs.com/es/
 [jsonwebtoken]: https://www.npmjs.com/package/jsonwebtoken
 [multer]: https://www.npmjs.com/package/multer
