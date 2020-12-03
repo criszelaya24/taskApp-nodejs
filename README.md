@@ -1,4 +1,4 @@
-# Task Apo
+# Task App
     A mini project with test suits created to manage your own tasks.
 
 # Goal
