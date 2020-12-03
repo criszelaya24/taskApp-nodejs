@@ -55,3 +55,27 @@ Example: **npm start dev**
     A. You can register as a User
     B. Create your avatar
     C. Create your task and manage it
+
+> ## Technologies
+### Development
+- [NodeJs][NodeJs]
+- [Express.js][express]
+- [jsonwebtoken][jsonwebtoken]
+- [multer][multer]
+- [validator][validator]
+
+### Tests
+- [jest][jest]
+- [eslint][eslint]
+- [nodemon][nodemon]
+- [supertest][supertest]
+
+[NodeJs]: https://nodejs.org/es/
+[express]: https://expressjs.com/es/
+[jsonwebtoken]: https://www.npmjs.com/package/jsonwebtoken
+[multer]: https://www.npmjs.com/package/multer
+[validator]: https://www.npmjs.com/package/validator
+[jest]: https://jestjs.io/
+[eslint]: https://eslint.org/
+[nodemon]: https://www.npmjs.com/package/nodemon
+[supertest]: https://www.npmjs.com/package/supertest
