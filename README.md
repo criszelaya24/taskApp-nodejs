@@ -42,12 +42,12 @@ You have on _settings.js_ an object with different configurations based on the e
 * To start the API:
 
         npm i
-        npm start env (env is the script in your package.json) ex: dev
+        npm run env (env is the script in your package.json) ex: dev
 
 Example: **npm start dev**
 
 > ## Tests
-    * npm start test -> Run all tests
+    * npm run test -> Run all tests
 
 ***You will watch on the terminal the details from tests, by default its connected locally and create a database for the tests***
 
